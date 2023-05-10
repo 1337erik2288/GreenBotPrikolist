@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">GreenBotPrikolist</string>
+    <string name="hello_comrade">Hello, Comrade!</string>
+    <string name="hello">Hello!</string>
+    <string name="let_s_get_started">Let\'s get started!</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="create_account">Create Account</string>
+    <string name="alredy_have_an_account">Alredy have an account</string>
+    <string name="login">Login</string>
+    <string name="todo">TODO</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="add_new_note">Add new note</string>
+    <string name="title">Title</string>
+    <string name="context">Context</string>
+    <string name="notes">Notes</string>
+    <string name="note_title">note title</string>
+    <string name="note_content">note content</string>
+    <string name="note_time">note time</string>
+</resources>

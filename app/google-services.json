@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "848318516000",
+    "project_id": "greenbotprikolist",
+    "storage_bucket": "greenbotprikolist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848318516000:android:b646e8c864550ce9302545",
+        "android_client_info": {
+          "package_name": "com.example.greenbotprikolist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848318516000-jmmbv2d3kudcus1g1383v8j6r8bcgmu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWs-DVzkV3gRw7sXWPgihJB3L7pl6SWjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848318516000-jmmbv2d3kudcus1g1383v8j6r8bcgmu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

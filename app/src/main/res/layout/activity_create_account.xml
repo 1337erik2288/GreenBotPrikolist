@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".CreateAccountActivity">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/login"
+        android:id="@+id/sign_in_icon"
+        android:layout_marginVertical="30dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/todo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_below="@+id/sign_in_icon"
+        android:id="@+id/hello_text"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/let_s_get_started"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hello_text"
+        android:orientation="vertical"
+        android:id="@+id/from_layout"
+        android:layout_marginVertical="32dp"
+        android:layout_marginHorizontal="10dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:id="@+id/email_edit_text"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:autofillHints=""
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:id="@+id/password_edit_text"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:autofillHints="" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/confirm_password"
+            android:id="@+id/confirm_password_edit_text"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:autofillHints="" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:id="@+id/create_account_btn"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:text="@string/create_account"
+            android:layout_marginTop="12dp"
+            android:textSize="20sp"
+            app:cornerRadius="10dp"
+            android:textStyle="bold"/>
+
+        <ProgressBar
+            android:layout_width="24dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            android:id="@+id/progress_indicator"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/from_layout"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="10dp"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:text="@string/alredy_have_an_account"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:id="@+id/login_text_view"
+            android:textStyle="bold"
+            android:text="@string/login"/>
+    </LinearLayout>
+
+</RelativeLayout>
