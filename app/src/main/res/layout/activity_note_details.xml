@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/page_title"
-            android:text="@string/add_new_note"
+            android:text="@string/add_new_deck"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold"/>
@@ -24,7 +24,7 @@
         <ImageButton
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:id="@+id/save_note_btn"
+            android:id="@+id/save_deck_btn"
             android:src="@drawable/baseline_done_outline_24"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
@@ -45,8 +45,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/notes_title_text"
-            android:hint="@string/title"
+            android:id="@+id/deck_name_text"
+            android:hint="@string/deck_name"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -55,14 +55,66 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/notes_context_text"
-            android:hint="@string/context"
-            android:minLines="15"
+            android:id="@+id/deck_format_text"
+            android:hint="@string/deck_format"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:gravity="top"
             android:layout_marginVertical="8dp"
-            android:padding="12dp" />
+            android:padding="12dp"
+            tools:ignore="LabelFor" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/creature_text"
+            android:hint="@string/creature"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginVertical="8dp"
+            android:padding="12dp"
+            tools:ignore="LabelFor" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/land_text"
+            android:hint="@string/land"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginVertical="8dp"
+            android:padding="12dp"
+            tools:ignore="LabelFor" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sorcery_text"
+            android:hint="@string/sorcery"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginVertical="8dp"
+            android:padding="12dp"
+            tools:ignore="LabelFor" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/artifact_text"
+            android:hint="@string/artifact"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginVertical="8dp"
+            android:padding="12dp"
+            tools:ignore="LabelFor" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delite_note"
+        android:textColor="@color/white"
+        android:id="@+id/delete_note_text_btn"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"/>
+
 
 </RelativeLayout>

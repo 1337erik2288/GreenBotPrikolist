@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/page_title"
-            android:text="@string/notes"
+            android:text="@string/decks"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold"/>
@@ -32,6 +32,7 @@
             app:tint="@color/white"/>
     </RelativeLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,7 +42,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/add_note_btn"
+        android:id="@+id/add_deck_btn"
         android:backgroundTint="@color/white"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"

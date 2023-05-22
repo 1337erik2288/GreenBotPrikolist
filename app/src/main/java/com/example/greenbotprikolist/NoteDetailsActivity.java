@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,67 +16,117 @@ import com.google.firebase.firestore.DocumentReference;
 
 public class NoteDetailsActivity extends AppCompatActivity {
 
-    EditText titleEditText, contentEditText;
-    ImageButton saveNoteBtn;
+    EditText nameDeckEditText, formatDeckEditText, creatureEditText, landEditText, sorceryEditText, artifactEditText;
+    ImageButton saveDeckBtn;
 
     TextView pageTitleTextView;
-    String title, content, docId;
+
+    String nameDeck, formatDeck, creature, land, sorcery, artifact, docId;
     boolean isEditMode = false;
+    TextView deleteDeckTextViewBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_details);
 
-        titleEditText = findViewById(R.id.notes_title_text);
-        contentEditText = findViewById(R.id.notes_context_text);
-        saveNoteBtn = findViewById(R.id.save_note_btn);
+        nameDeckEditText = findViewById(R.id.deck_name_text);
+        formatDeckEditText = findViewById(R.id.deck_format_text);
+        creatureEditText = findViewById(R.id.creature_text);
+        landEditText = findViewById(R.id.land_text);
+        sorceryEditText = findViewById(R.id.sorcery_text);
+        artifactEditText = findViewById(R.id.artifact_text);
+        saveDeckBtn = findViewById(R.id.save_deck_btn);
         pageTitleTextView = findViewById(R.id.page_title);
+        deleteDeckTextViewBtn = findViewById(R.id.delete_note_text_btn);
 
-        title = getIntent().getStringExtra("title");
-        content = getIntent().getStringExtra("content");
+        nameDeck = getIntent().getStringExtra("nameDeck");
+        formatDeck = getIntent().getStringExtra("formatDeck");
+        creature = getIntent().getStringExtra("creature");
+        land = getIntent().getStringExtra("land");
+        sorcery = getIntent().getStringExtra("sorcery");
+        artifact = getIntent().getStringExtra("artifact");
         docId = getIntent().getStringExtra("docId");
 
         if (docId!=null && !docId.isEmpty()){
             isEditMode = true;
         }
 
-        titleEditText.setText(title);
-        contentEditText.setText(content);
+        nameDeckEditText.setText(nameDeck);
+        formatDeckEditText.setText(formatDeck);
+        creatureEditText.setText(creature);
+        landEditText.setText(land);
+        artifactEditText.setText(artifact);
+        sorceryEditText.setText(sorcery);
 
         if (isEditMode){
-            pageTitleTextView.setText("Edit your note");
+            pageTitleTextView.setText("Edit your deck");
+            deleteDeckTextViewBtn.setVisibility(View.VISIBLE);
         }
 
 
-        saveNoteBtn.setOnClickListener((v)-> saveNote());
+        saveDeckBtn.setOnClickListener((v)-> saveDeck());
+
+        deleteDeckTextViewBtn.setOnClickListener((v)-> deleteDeckFromFirebase());
     }
 
-    public void saveNote(){
-        String noteTitle = titleEditText.getText().toString();
-        String noteContent = contentEditText.getText().toString();
-        if(noteTitle==null || noteTitle.isEmpty()){
-            titleEditText.setError("Title is empty");
+    public void saveDeck(){
+        String deckName = nameDeckEditText.getText().toString();
+        String formatDeck = formatDeckEditText.getText().toString();
+        String creature = creatureEditText.getText().toString();
+        String land = landEditText.getText().toString();
+        String sorcery = sorceryEditText.getText().toString();
+        String artifact = artifactEditText.getText().toString();
+        if(deckName==null || deckName.isEmpty()){
+            nameDeckEditText.setError("Title is empty");
             return;
         }
 
-        Note note = new Note();
-        note.setTitle(noteTitle);
-        note.setContent(noteContent);
-        note.setTimestamp(Timestamp.now());
-        saveNoteToFirebase(note);
+        Note deck = new Note();
+        deck.setDeckName(deckName);
+        deck.setDeckFormat(formatDeck);
+        deck.setCreature(creature);
+        deck.setLand(land);
+        deck.setSorcery(sorcery);
+        deck.setArtifact(artifact);
+        deck.setTimestamp(Timestamp.now());
+        saveDeckToFirebase(deck);
 
     }
 
-    public void saveNoteToFirebase(Note note){
+    public void saveDeckToFirebase(Note deck){
         DocumentReference documentReference;
-        documentReference = Utility.getCollectionReferenceForNotes().document();
+        if (isEditMode){
+            documentReference = Utility.getCollectionReferenceForNotes().document(docId);
+        }else {
+            documentReference = Utility.getCollectionReferenceForNotes().document();
+        }
 
-        documentReference.set(note).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+        documentReference.set(deck).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Utility.showToast(NoteDetailsActivity.this, "Note added!");
+                    Utility.showToast(NoteDetailsActivity.this, "Deck added!");
+                    finish();
+                }else{
+                    Utility.showToast(NoteDetailsActivity.this, "Failed...");
+                }
+            }
+        });
+    }
+
+    public void deleteDeckFromFirebase(){
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForNotes().document(docId);
+
+
+
+        documentReference.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Utility.showToast(NoteDetailsActivity.this, "Deck deleted!");
                     finish();
                 }else{
                     Utility.showToast(NoteDetailsActivity.this, "Failed...");

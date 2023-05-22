@@ -19,11 +19,11 @@ public class Utility {
 
     static CollectionReference getCollectionReferenceForNotes(){
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        return FirebaseFirestore.getInstance().collection("notes")
-                .document(currentUser.getUid()).collection("my_notes");
+        return FirebaseFirestore.getInstance().collection("decks")
+                .document(currentUser.getUid()).collection("my_decks");
     }
 
     public static String timestampToString(Timestamp timestamp){
-        return new SimpleDateFormat("DD/mm/yyyy").format(timestamp.toDate());
+        return new SimpleDateFormat("MM/dd/yyyy").format(timestamp.toDate());
     }
 }

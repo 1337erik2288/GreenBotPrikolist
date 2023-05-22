@@ -11,25 +11,57 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/note_title"
-        android:id="@+id/title_note_text_view"
+        android:text="@string/deck_name"
+        android:id="@+id/deck_name_text_view"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:layout_marginVertical="4dp"/>
+
+    <TextView
+        android:id="@+id/deck_format_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:text="@string/deck_format"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/note_content"
-        android:id="@+id/content_note_text_view"
-        android:maxLines="2"
-        android:ellipsize="end"
+        android:text="@string/creature"
+        android:id="@+id/creature_text_view"
         android:textColor="@color/black"
         android:textSize="17sp"
         android:layout_marginVertical="4dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/note_time"
+        android:text="@string/land"
+        android:id="@+id/land_text_view"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:layout_marginVertical="4dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sorcery"
+        android:id="@+id/sorcery_text_view"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:layout_marginVertical="4dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/artifact"
+        android:id="@+id/artifact_text_view"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:layout_marginVertical="4dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/deck_time"
         android:id="@+id/timestamp_note_text_view"
         android:maxLines="2"
         android:ellipsize="end"

@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.api.Context;
 
-public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.NoteViewHolder> {
+public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.DeckViewHolder> {
 
     MainActivity context;
 
@@ -25,15 +24,23 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull Note note) {
-        holder.titleTextView.setText(note.getTitle());
-        holder.contentTextView.setText(note.getContent());
-        holder.timestampTextView.setText(Utility.timestampToString(note.getTimestamp()));
+    protected void onBindViewHolder(@NonNull DeckViewHolder holder, int position, @NonNull Note deck) {
+        holder.deckNameTextView.setText(deck.getDeckName());
+        holder.deckFormatTextView.setText(deck.getDeckFormat());
+        holder.creatureTextView.setText(deck.getCreature());
+        holder.landTextView.setText(deck.getLand());
+        holder.sorceryTextView.setText(deck.getSorcery());
+        holder.artifactTextView.setText(deck.getArtifact());
+        holder.timestampTextView.setText(Utility.timestampToString(deck.getTimestamp()));
 
         holder.itemView.setOnClickListener((v)-> {
             Intent intent = new Intent(context,NoteDetailsActivity.class);
-            intent.putExtra("title", note.getTitle());
-            intent.putExtra("content", note.getContent());
+            intent.putExtra("name", deck.getDeckName());
+            intent.putExtra("format", deck.getDeckFormat());
+            intent.putExtra("creature", deck.getCreature());
+            intent.putExtra("land", deck.getLand());
+            intent.putExtra("artifact", deck.getArtifact());
+            intent.putExtra("sorcery", deck.getSorcery());
             String docId = this.getSnapshots().getSnapshot(position).getId();
             intent.putExtra("docId", docId);
             context.startActivity(intent);
@@ -42,19 +49,23 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
 
     @NonNull
     @Override
-    public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DeckViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_note_item,parent, false);
-        return new NoteViewHolder(view);
+        return new DeckViewHolder(view);
     }
 
-    class NoteViewHolder extends RecyclerView.ViewHolder {
+    class DeckViewHolder extends RecyclerView.ViewHolder {
 
-        TextView titleTextView, contentTextView, timestampTextView;
+        TextView deckNameTextView, deckFormatTextView, creatureTextView, landTextView, sorceryTextView, artifactTextView, timestampTextView;
 
-        public NoteViewHolder(@NonNull View itemView) {
+        public DeckViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.title_note_text_view);
-            contentTextView = itemView.findViewById(R.id.content_note_text_view);
+            deckNameTextView = itemView.findViewById(R.id.deck_name_text_view);
+            deckFormatTextView = itemView.findViewById(R.id.deck_format_text_view);
+            creatureTextView = itemView.findViewById(R.id.creature_text_view);
+            landTextView = itemView.findViewById(R.id.land_text_view);
+            sorceryTextView = itemView.findViewById(R.id.sorcery_text_view);
+            artifactTextView = itemView.findViewById(R.id.artifact_text_view);
             timestampTextView = itemView.findViewById(R.id.timestamp_note_text_view);
         }
     }

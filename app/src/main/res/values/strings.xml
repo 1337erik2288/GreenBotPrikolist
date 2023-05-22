@@ -20,4 +20,15 @@
     <string name="note_title">note title</string>
     <string name="note_content">note content</string>
     <string name="note_time">note time</string>
+    <string name="delite_note">Delite note</string>
+    <string name="search">search</string>
+    <string name="add_new_deck">Add new deck</string>
+    <string name="deck_name">Deck name</string>
+    <string name="deck_format">Deck format</string>
+    <string name="creature">creature</string>
+    <string name="land">land</string>
+    <string name="sorcery">sorcery</string>
+    <string name="artifact">artifact</string>
+    <string name="deck_time">deck time</string>
+    <string name="decks">Decks</string>
 </resources>
