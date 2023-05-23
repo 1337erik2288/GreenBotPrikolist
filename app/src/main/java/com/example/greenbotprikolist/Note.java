@@ -11,10 +11,30 @@ public class Note {
     private String sorcery;
     private String artifact;
 
+    private String winCount;
+
+    private String loseCount;
+
     private Timestamp timestamp;
 
     public Note() {
 
+    }
+
+    public String getWinCount() {
+        return winCount;
+    }
+
+    public void setWinCount(String winCount) {
+        this.winCount = winCount;
+    }
+
+    public String getLoseCount() {
+        return loseCount;
+    }
+
+    public void setLoseCount(String loseCount) {
+        this.loseCount = loseCount;
     }
 
     public String getCreature() {

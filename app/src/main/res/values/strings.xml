@@ -31,4 +31,5 @@
     <string name="artifact">artifact</string>
     <string name="deck_time">deck time</string>
     <string name="decks">Decks</string>
+    <string name="game">Game!</string>
 </resources>
