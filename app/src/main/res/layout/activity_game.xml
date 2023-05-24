@@ -47,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/game_deck_name_edit"
+                android:paddingHorizontal="5sp"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -60,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/game_deck_format"
+
                 android:text="@string/deck_format"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -67,44 +69,49 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5sp"
                 android:id="@+id/game_deck_format_edit"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="2dp">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="2dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/game_creature"
-                android:text="@string/creature"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/game_creature_edit"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/plus_creature_btn"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/baseline_add_24"/>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/minus_creature_btn"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/baseline_indeterminate_check_box_24"/>
-        </LinearLayout>
+            android:id="@+id/game_creature"
+            android:text="@string/creature"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/game_creature_edit"
+            android:paddingHorizontal="5sp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/plus_creature_btn"
+
+            android:backgroundTint="@color/white"
+            android:src="@drawable/baseline_add_24"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="5sp"
+            android:id="@+id/minus_creature_btn"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/baseline_indeterminate_check_box_24"/>
+    </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,6 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/game_sorcery_edit"
+                android:paddingHorizontal="5sp"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -135,6 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/minus_sorcery_btn"
+                android:paddingHorizontal="5sp"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/baseline_indeterminate_check_box_24"/>
         </LinearLayout>
@@ -155,6 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/game_land_edit"
+                android:paddingHorizontal="5sp"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="20sp" />
@@ -168,6 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/minus_land_btn"
+                android:paddingHorizontal="5sp"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/baseline_indeterminate_check_box_24"/>
         </LinearLayout>
@@ -189,6 +200,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/game_artifact_edit"
                 android:text=""
+                android:paddingHorizontal="5sp"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
             <ImageButton
@@ -201,6 +213,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/minus_artifact_btn"
+                android:paddingHorizontal="5sp"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/baseline_indeterminate_check_box_24"/>
         </LinearLayout>
@@ -215,44 +228,123 @@
         android:layout_marginVertical="26dp"
         android:backgroundTint="@color/white"
         android:background="@drawable/rounded_corner">
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/game_deck_creature_information"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/creature_card"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5sp"
+                android:id="@+id/game_deck_creature_information"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/game_deck_sorcery_information"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sorcery_card"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5sp"
+                android:id="@+id/game_deck_sorcery_information"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/game_deck_land_information"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/land_card"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5sp"
+                android:id="@+id/game_deck_land_information"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/game_deck_artifact_information"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/artifact_card"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5sp"
+                android:id="@+id/game_deck_artifact_information"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/game_deck_win_information"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/win_count"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5sp"
+                android:id="@+id/game_deck_win_information"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/game_deck_lose_information"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lose_count"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5sp"
+                android:id="@+id/game_deck_lose_information"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
 
     </LinearLayout>
     <ImageButton
@@ -263,6 +355,16 @@
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/white"
         android:src="@drawable/baseline_add_24"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_deck"
+        android:textColor="@color/white"
+        android:id="@+id/delete_deck_text_btn"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

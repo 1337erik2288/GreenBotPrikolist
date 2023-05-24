@@ -32,4 +32,11 @@
     <string name="deck_time">deck time</string>
     <string name="decks">Decks</string>
     <string name="game">Game!</string>
+    <string name="creature_card">creature card %</string>
+    <string name="sorcery_card">sorcery card %</string>
+    <string name="land_card">land card %</string>
+    <string name="artifact_card">artifact card %</string>
+    <string name="win_count">win count</string>
+    <string name="lose_count">lose count</string>
+    <string name="delete_deck">Delete deck</string>
 </resources>

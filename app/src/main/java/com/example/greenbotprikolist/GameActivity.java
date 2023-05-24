@@ -1,14 +1,21 @@
 package com.example.greenbotprikolist;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
+
 public class GameActivity extends AppCompatActivity {
 
-    TextView deckNameEditText, deckFormatEditText, creatureCount, sorceryCount, landCount, artifactCount, creatureInformation, sorceryInformation, landInformation, artifactInformation, winInformation, loseInformation;
+    TextView deckNameEditText, deckFormatEditText, creatureCount, sorceryCount, landCount, artifactCount, creatureInformation, sorceryInformation, landInformation, artifactInformation, winInformation, loseInformation, deleteDeckTextBtn;
 
     ImageButton plusCreatureBtn, minusCreatureBtn, plusSorceryBtn, minusSorceryBtn, plusLandBtn, minusLandBtn, plusArtifactBtn, minusArtifactBtn, winBtn, loseBtn;
     String  nameDeck, formatDeck, creature, land, sorcery, artifact,win, lose, docId;
@@ -40,6 +47,7 @@ public class GameActivity extends AppCompatActivity {
         minusArtifactBtn = findViewById(R.id.minus_artifact_btn);
         winBtn = findViewById(R.id.add_win_btn);
         loseBtn = findViewById(R.id.add_lose_btn);
+        deleteDeckTextBtn = findViewById(R.id.delete_deck_text_btn);
 
         nameDeck = getIntent().getStringExtra("nameDeck");
         formatDeck = getIntent().getStringExtra("formatDeck");
@@ -108,6 +116,77 @@ public class GameActivity extends AppCompatActivity {
             help--;
             artifactCount.setText(String.valueOf(help));
             OnChange();
+        });
+        winBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(win));
+            help++;
+            win = help.toString();
+            saveDeck();
+            startActivity(new Intent(GameActivity.this, MainActivity.class));
+        });
+        loseBtn.setOnClickListener(view -> {
+            Float help = Float.parseFloat(String.valueOf(lose));
+            help++;
+            lose = help.toString();
+            saveDeck();
+            startActivity(new Intent(GameActivity.this, MainActivity.class));
+        });
+        deleteDeckTextBtn.setOnClickListener(view -> {
+            deleteDeckFromFirebase();
+        });
+    }
+
+    public void saveDeck(){
+        Note deck = new Note();
+
+        deck.setDeckName(nameDeck);
+        deck.setDeckFormat(formatDeck);
+        deck.setCreature(creature);
+        deck.setLand(land);
+        deck.setSorcery(sorcery);
+        deck.setArtifact(artifact);
+        deck.setWinCount(win);
+        deck.setLoseCount(lose);
+        deck.setTimestamp(Timestamp.now());
+        saveDeckToFirebase(deck);
+
+    }
+
+    public void saveDeckToFirebase(Note deck){
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForNotes().document(docId);
+
+
+
+
+        documentReference.set(deck).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Utility.showToast(GameActivity.this, "Game finish!");
+                    finish();
+                }else{
+                    Utility.showToast(GameActivity.this, "Failed...");
+                }
+            }
+        });
+    }
+    public void deleteDeckFromFirebase(){
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForNotes().document(docId);
+
+
+
+        documentReference.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Utility.showToast(GameActivity.this, "Deck deleted!");
+                    finish();
+                }else{
+                    Utility.showToast(GameActivity.this, "Failed...");
+                }
+            }
         });
     }
     public void OnChange(){
