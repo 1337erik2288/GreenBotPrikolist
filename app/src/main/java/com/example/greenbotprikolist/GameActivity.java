@@ -67,16 +67,58 @@ public class GameActivity extends AppCompatActivity {
             creatureCount.setText(String.valueOf(help));
             OnChange();
         });
+        minusCreatureBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(creatureCount.getText()));
+            help--;
+            creatureCount.setText(String.valueOf(help));
+            OnChange();
+        });
+        plusLandBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(landCount.getText()));
+            help++;
+            landCount.setText(String.valueOf(help));
+            OnChange();
+        });
+        minusLandBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(landCount.getText()));
+            help--;
+            landCount.setText(String.valueOf(help));
+            OnChange();
+        });
+        plusSorceryBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(sorceryCount.getText()));
+            help++;
+            sorceryCount.setText(String.valueOf(help));
+            OnChange();
+        });
+        minusSorceryBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(sorceryCount.getText()));
+            help--;
+            sorceryCount.setText(String.valueOf(help));
+            OnChange();
+        });
+        plusArtifactBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(artifactCount.getText()));
+            help++;
+            artifactCount.setText(String.valueOf(help));
+            OnChange();
+        });
+        minusArtifactBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(artifactCount.getText()));
+            help--;
+            artifactCount.setText(String.valueOf(help));
+            OnChange();
+        });
     }
     public void OnChange(){
 
         Float sum, helpCreature, helpSorcery, helpLand, helpArtifact;
 
         sum = Float.parseFloat(String.valueOf(creatureCount.getText())) + Float.parseFloat(String.valueOf(landCount.getText())) + Float.parseFloat(String.valueOf(artifactCount.getText())) + Float.parseFloat(String.valueOf(sorceryCount.getText()));
-        helpCreature = Float.parseFloat(String.valueOf(creatureCount.getText()))/sum*100;
-        helpSorcery = Float.parseFloat(sorcery)/sum*100;
-        helpLand = Float.parseFloat(land)/sum*100;
-        helpArtifact= Float.parseFloat(artifact)/sum*100;
+        helpCreature = (Float.parseFloat(String.valueOf(creatureCount.getText()))/sum)*100;
+        helpSorcery = (Float.parseFloat(String.valueOf(sorceryCount.getText()))/sum)*100;
+        helpLand = (Float.parseFloat(String.valueOf(landCount.getText()))/sum)*100;
+        helpArtifact= (Float.parseFloat(String.valueOf(artifactCount.getText()))/sum)*100;
         creatureInformation.setText(String.valueOf(helpCreature));
         sorceryInformation.setText(String.valueOf(helpSorcery));
         landInformation.setText(String.valueOf(helpLand));
