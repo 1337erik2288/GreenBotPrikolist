@@ -36,6 +36,8 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Deck
 
         holder.itemView.setOnClickListener((v)-> {
             Intent intent = new Intent(context,GameActivity.class);
+            intent.putExtra("nameDeck", deck.getDeckName());
+            intent.putExtra("formatDeck", deck.getDeckFormat());
             intent.putExtra("creature", deck.getCreature());
             intent.putExtra("land", deck.getLand());
             intent.putExtra("artifact", deck.getArtifact());

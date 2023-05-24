@@ -59,20 +59,27 @@ public class GameActivity extends AppCompatActivity {
         sorceryCount.setText(sorcery);
         winInformation.setText(win);
         loseInformation.setText(lose);
+        creatureInformation.setText(creature);
         OnChange();
+        plusCreatureBtn.setOnClickListener((v)-> {
+            Float help = Float.parseFloat(String.valueOf(creatureCount.getText()));
+            help++;
+            creatureCount.setText(String.valueOf(help));
+            OnChange();
+        });
     }
     public void OnChange(){
 
-        Integer sum, helpCreature, helpSorcery, helpLand, helpArtifact;
-        sum = Integer.parseInt(String.valueOf(creatureCount))+Integer.parseInt(String.valueOf(landCount))+Integer.parseInt(String.valueOf(sorceryCount))+Integer.parseInt(String.valueOf(artifactCount));
-        helpCreature = Integer.parseInt(String.valueOf(creatureCount))/sum*100;
-        helpSorcery = Integer.parseInt(sorcery)/sum*100;
-        helpLand = Integer.parseInt(land)/sum*100;
-        helpArtifact= Integer.parseInt(artifact)/sum*100;
-        creatureInformation.setText(helpCreature);
-        sorceryInformation.setText(helpSorcery);
-        landInformation.setText(helpLand);
-        artifactInformation.setText(helpArtifact);
-        return;
+        Float sum, helpCreature, helpSorcery, helpLand, helpArtifact;
+
+        sum = Float.parseFloat(String.valueOf(creatureCount.getText())) + Float.parseFloat(String.valueOf(landCount.getText())) + Float.parseFloat(String.valueOf(artifactCount.getText())) + Float.parseFloat(String.valueOf(sorceryCount.getText()));
+        helpCreature = Float.parseFloat(String.valueOf(creatureCount.getText()))/sum*100;
+        helpSorcery = Float.parseFloat(sorcery)/sum*100;
+        helpLand = Float.parseFloat(land)/sum*100;
+        helpArtifact= Float.parseFloat(artifact)/sum*100;
+        creatureInformation.setText(String.valueOf(helpCreature));
+        sorceryInformation.setText(String.valueOf(helpSorcery));
+        landInformation.setText(String.valueOf(helpLand));
+        artifactInformation.setText(String.valueOf(helpArtifact));
     }
 }

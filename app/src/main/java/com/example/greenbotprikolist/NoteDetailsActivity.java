@@ -21,7 +21,7 @@ public class NoteDetailsActivity extends AppCompatActivity {
 
     TextView pageTitleTextView;
 
-    String nameDeck, formatDeck, creature, land, sorcery, artifact, docId;
+    String nameDeck, formatDeck, creature, land, sorcery, artifact, winCount, loseCount, docId;
     boolean isEditMode = false;
     TextView deleteDeckTextViewBtn;
 
@@ -40,6 +40,8 @@ public class NoteDetailsActivity extends AppCompatActivity {
         pageTitleTextView = findViewById(R.id.page_title);
         deleteDeckTextViewBtn = findViewById(R.id.delete_note_text_btn);
 
+        winCount = String.valueOf(0);
+        loseCount = String.valueOf(0);
         nameDeck = getIntent().getStringExtra("nameDeck");
         formatDeck = getIntent().getStringExtra("formatDeck");
         creature = getIntent().getStringExtra("creature");
@@ -83,12 +85,15 @@ public class NoteDetailsActivity extends AppCompatActivity {
         }
 
         Note deck = new Note();
+
         deck.setDeckName(deckName);
         deck.setDeckFormat(formatDeck);
         deck.setCreature(creature);
         deck.setLand(land);
         deck.setSorcery(sorcery);
         deck.setArtifact(artifact);
+        deck.setWinCount(winCount);
+        deck.setLoseCount(loseCount);
         deck.setTimestamp(Timestamp.now());
         saveDeckToFirebase(deck);
 
